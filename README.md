@@ -1,82 +1,39 @@
-# LangChain & Supabase - Create a ChatGpt Chatbot for Your Website
+# RescueHub Project
 
-Create a chatgpt chatbot for your website using LangChain, Supabase, Typescript, Openai, and Next.js. LangChain is a framework that makes it easier to build scalable AI/LLM apps. Supabase is an open source Postgres database that can store embeddings using a pg vector extension.
 
-[Tutorial video](https://www.youtube.com/watch?v=prbloUGlvLE)
+RescueHub is a comprehensive platform designed to enhance communication and collaboration among rescue agencies during disaster relief efforts. By providing a centralized database, real-time mapping, and innovative features like a cryptocurrency incentive system for volunteers, RescueHub aims to streamline and strengthen disaster response.
 
-[Get in touch via twitter if you need help](https://twitter.com/mayowaoshin)
+##Demo
 
-The visual guide of this repo and tutorial is in the `visual guide` folder.
+Watch our demo video on YouTube to see RescueHub in action: RescueHub Demo((https://youtu.be/2ZWm4RNXRBQ))
 
-## Development
+## Features
 
-1. Clone the repo
+1. **Centralized Database:**
+   - Rescue agencies can manually register their information, including location, contact details, and areas of expertise.
+   - A centralized database stores and organizes this information for quick access.
 
-```
-git clone [github https url]
-```
+2. **Interactive Map:**
+   - The platform includes an interactive map that displays the locations of all registered rescue agencies, facilitating efficient coordination and resource allocation.
 
-2. Install packages
+3. **Communication and Collaboration:**
+   - Agencies can send requests for assistance and collaborate on shared resources, such as medical equipment and food.
+   - The platform acts as a hub for streamlined communication, ensuring a more effective response to disaster situations.
 
-```
-pnpm install
-```
+4. **Volunteer Registration:**
+   - Individuals passionate about disaster relief can register as official volunteers through the platform.
+   - Upon approval by administrators, volunteers receive cryptocurrency incentives using blockchain technology.
 
-3. Set up your `.env` file
+5. **Flash Chatbot:**
+   - Our dedicated disaster relief chatbot, Flash, provides personalized responses to all disaster relief inquiries.
+   - Flash relies exclusively on information from trusted government websites, ensuring accuracy in the information provided.
 
-- Copy `.env.local.example` into `.env`
-  Your `.env` file should look like this:
+## Getting Started
 
-```
-OPENAI_API_KEY=
+1. **Clone the repository:**
 
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
+   ```bash
+   git clone https://github.com/your-username/RescueHub.git
+   cd RescueHub
 
-```
-
-- Visit [openai](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key) to retrieve API keys and insert into your `.env` file.
-- Visit [supabase](https://supabase.com/) to create a database and retrieve your keys in the user dashboard as per [docs instructions](https://supabase.com/docs)
-
-4. In the `config` folder, replace the urls in the array with your website urls (the script requires more than one url).
-
-5. In the `utils/custom_web_loader.ts` inside the `load` function replace the values of `title`, `date` and `content` with the css elements of text you'd like extract from a given webpage. You can learn more about how to use Cheerio [here](https://cheerio.js.org/)
-
-You can add your custom elements to the metadata to meet your needs, note however that the default loader format as per below expects at least a string for `pageContent` and `metadata` that contains a `source` property as a returned value:
-
-```
-async load(): Promise<Document[]>{
-  const $ = await this.scrape();
-      const text = $("body").text();
-    const metadata = { source: this.webPath };
-    return [new Document({ pageContent: text, metadata })];
-  }
-
-```
-
-The `pageContent` and `metadata` will later be stored in your supabase database table.
-
-6. Copy and run `schema.sql` in your supabase sql editor
-
-- cross check the `documents` table exists in the database as well as the `match_documents` function.
-
-## 🧑 Instructions for scraping and embedding
-
-To run the scraping and embedding script in `scripts/scrape-embed.ts` simply run:
-
-`npm run scrape-embed`
-
-This script will visit all the urls noted in the `config` folder and extract the data you specified in the `custom_web_loader.ts` file.
-
-Then it will use OpenAI's Embeddings(`text-embedding-ada-002`) to convert your scraped data into vectors.
-
-## Run the app
-
-Once you've verified that the embeddings and content have been successfully added to your supabase table, you can run the app `npm run dev` and type a question to ask your website.
-
-## Credit
-
-Frontend of this repo is inspired by [langchain-chat-nextjs](https://github.com/zahidkhawaja/langchain-chat-nextjs)
-
-This repo uses in-depth Notion guides from the [website](https://thomasjfrank.com/) of productivity expert, Thomas Frank.
+![image 2](https://github.com/Segmentation-Fault-SIH/merged/assets/79699023/c5b263b8-38c2-4641-ae4b-951114d7ff13)
