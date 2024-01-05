@@ -3,7 +3,7 @@
 
 RescueHub is a comprehensive platform designed to enhance communication and collaboration among rescue agencies during disaster relief efforts. By providing a centralized database, real-time mapping, and innovative features like a cryptocurrency incentive system for volunteers, RescueHub aims to streamline and strengthen disaster response.
 
-##Demo
+## Demo
 
 Watch our demo video on YouTube to see RescueHub in action: RescueHub Demo((https://youtu.be/2ZWm4RNXRBQ))
 
